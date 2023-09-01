@@ -32,10 +32,91 @@ Normalizing the data
 Splitting the data into test and train
 
 ## PROGRAM:
-/Write your code here/
+```
+Name:Rakshitha Devi J
+reg no:212221230082
+```
+```
+# Importing Libraries
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+
+#Read the dataset
+df=pd.read_csv('Churn_Modelling.csv')
+df
+
+#Checking for null values
+df.isnull().sum()
+
+#Checking for dulpicated values
+df.duplicated()
+
+#Dropping unwanted columns
+df.drop('RowNumber',axis=1,inplace=True)
+df.drop('CustomerId',axis=1,inplace=True)
+df.drop('Age',axis=1,inplace=True)
+df.drop('Gender',axis=1,inplace=True)
+df.drop('Surname',axis=1,inplace=True)
+df.drop('Geography',axis=1,inplace=True)
+df
+
+#Normalising using MinMaxScaler
+ms=MinMaxScaler()
+df2=pd.DataFrame(ms.fit_transform(df))
+df2
+
+#Splitting the dataset - x
+X=df2.iloc[:,:-1].values
+X
+
+#Splitting the dataset - y
+y=df2.iloc[:,-1].values
+y
+
+# Training the dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+print(X_train)
+print("X_train: ",len(X_train))
+print(X_test)
+print("Size of X_test: ",len(X_test))
+```
+
+
 
 ## OUTPUT:
-/ Show the result/
+# Read the dataset
+![image](https://github.com/Rakshithadevi/Ex.No.1---Data-Preprocessing/assets/94165326/23c96d57-fd1f-4213-9970-d470e2a81df7)
+
+# Checking for null values
+![image](https://github.com/Rakshithadevi/Ex.No.1---Data-Preprocessing/assets/94165326/c9402be1-49be-4df8-acff-e0bb55e9f009)
+
+# Dropping unwanted columns
+![image](https://github.com/Rakshithadevi/Ex.No.1---Data-Preprocessing/assets/94165326/74a4e095-d09a-444e-a63e-dd64364310af)
+
+# Normalising using MinMaxScaler
+![image](https://github.com/Rakshithadevi/Ex.No.1---Data-Preprocessing/assets/94165326/b1b9dcb8-5495-4bb8-b603-ccb4bea11285)
+
+# Splitting the dataset - x
+![image](https://github.com/Rakshithadevi/Ex.No.1---Data-Preprocessing/assets/94165326/d39cff04-8c25-4c7a-95c4-cbaa453e1aad)
+
+# Splitting the dataset - y
+![image](https://github.com/Rakshithadevi/Ex.No.1---Data-Preprocessing/assets/94165326/192d15c7-a854-4786-af3e-524d17f8a9cc)
+
+# Training the dataset
+![image](https://github.com/Rakshithadevi/Ex.No.1---Data-Preprocessing/assets/94165326/1c8549a4-096a-412f-ba33-0734d7c6e928)
+
+
+
+
+
+
+
+
+
+
 
 ## RESULT
-/Type your result here/
+Thus the given data is been Executed successfully.
